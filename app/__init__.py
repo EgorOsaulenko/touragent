@@ -1,7 +1,7 @@
 from flask import Flask
-from touragent.db import create_db
-from touragent.routes import main_route, tour_route
-from touragent.data.admin_password import ADMIN_PASSWORD
+from app.db import create_db
+from app.routes import main_route, tour_route
+from app.data.admin_password import ADMIN_PASSWORD
 
 app = Flask(__name__)
 app.secret_key = ADMIN_PASSWORD

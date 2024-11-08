@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Float, Integer
-from travel_agency.db.models.base import Base
+from app.db.models.base import Base
 
 class Tour(Base):
     __tablename__ = "tours"
