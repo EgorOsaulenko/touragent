@@ -1,0 +1,16 @@
+{% extends "_base.html" %}
+
+{% block title %}Список Турів{% endblock title %}
+
+{% block content %}
+<h1>Доступні Тури</h1>
+<ul>
+    {% for tour in tours %}
+    <li>
+        <h3>{{ tour.name }} - {{ tour.destination }}</h3>
+        <p>Ціна: {{ tour.price }} USD</p>
+        <a href="{{ url_for('tours.tour_detail', tour_id=tour.id) }}">Переглянути деталі</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ tour.name }} - Деталі{% endblock title %}
+
+{% block content %}
+<h1>{{ tour.name }}</h1>
+<p><strong>Місце призначення:</strong> {{ tour.destination }}</p>
+<p><strong>Ціна:</strong> {{ tour.price }} USD</p>
+<p><strong>Тривалість:</strong> {{ tour.duration_days }} днів</p>
+<p><strong>Опис:</strong> {{ tour.description }}</p>
+
+<h2>Забронювати цей тур</h2>
+<form method="POST">
+    <label for="customer_name">Ім'я:</label><br>
+    <input type="text" id="customer_name" name="customer_name" required><br><br>
+
+    <label for="customer_email">Email:</label><br>
+    <input type="email" id="customer_email" name="customer_email" required><br><br>
+
+    <label for="seats">Кількість місць:</label><br>
+    <input type="number" id="seats" name="seats" min="1" required><br><br>
+
+    <input type="submit" value="Забронювати">
+</form>
+<a href="{{ url_for('tours.list_tours') }}">Назад до списку турів</a>
+{% endblock %}
