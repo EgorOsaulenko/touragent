@@ -6,6 +6,12 @@ from app.data.admin_password import ADMIN_PASSWORD
 
 tour_route = Blueprint("tours", __name__, url_prefix="/tours")
 
+@tour_route.route("/", methods=["GET"])
+def list_tours():
+    with Session() as session:
+        all_tours = session.query(Tour).all()
+    return render_template("list_tours.html", tours=all_tours)
+
 @tour_route.route("/add", methods=["GET", "POST"])
 def add_tour():
     if request.method == "POST":
